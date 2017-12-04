@@ -40,4 +40,33 @@ module.exports.getArticlesByCategory = function(category, callback){
   Article.find(query,callback);
 }
 
-//
+//create article/ add an article
+module.exports.createArticle = function(newArticle, callback) {
+  newArticle.save(callback);
+}
+
+//update an articles
+module.exports.updateArticle = function(id,data,callback) {
+  var title = data.title;
+  var body = data.body;
+  var category = data.category;
+
+  var query = {id: id};
+  Article.findById(id, function(err,article){
+    if(!article){
+      return next(new Error('Could not load article'));
+    }else {
+      //updateArticle
+      article.title = title;
+      article.body = body;
+      article.category = category;
+
+      article.save(callback);
+    }
+  });
+}
+
+// Remove article
+module.exports.removeArticle = function (id,callback) {
+  Article.find({_id: id}).remove(callback);
+}
