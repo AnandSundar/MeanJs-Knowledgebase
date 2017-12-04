@@ -8,3 +8,10 @@
 <li> AngularJs - Frontend </li>
 <li> MongoDB - to store articles</li>
 </ul>
+
+<h4>Pre-requisite</h4>
+<ul>
+<li>NodeJs<li>
+<li>MongoDB</li>
+<li>Python</li>
+</ul>
